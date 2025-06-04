@@ -1,0 +1,10 @@
+function doGet(e) {
+  var sheet = SpreadsheetApp.openById("1Xa2Yb3Z4IDExemplo5678abc").getSheetByName("Dados");
+  var data = new Date();
+  sheet.appendRow([
+    Utilities.formatDate(data, "GMT-3", "dd/MM/yyyy HH:mm:ss"),
+    e.parameter.distancia,
+    e.parameter.tipo
+  ]);
+  return ContentService.createTextOutput("OK");
+}
